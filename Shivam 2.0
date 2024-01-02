@@ -1,0 +1,48 @@
+import telegram
+from telegram.ext import ApplicationBuilder, CommandHandler
+
+TOKEN = "6774965320:AAGliOzOAxtZNNTZ-ZJx8hPOkD8MbMgKx0g" 
+
+bot = telegram.Bot(token=TOKEN)
+app = ApplicationBuilder().token(TOKEN).build()
+
+async def start(update, context):
+    await update.message.reply_text("Hello! Welcome to Kailash 2.0")
+
+async def help_command(update, context):
+    await update.message.reply_text("""
+Available commands:
+/start -> Welcome to the Channel
+/help -> This is particular message
+/context -> About various Answers on Lord Shiva
+/Shiva -> Information about Shiva
+/Parvati -> Information about Parvati
+/Kailash -> Information about Mount Kailash
+/contact -> Contact information
+""")
+
+async def content(update, context):
+    await update.message.reply_text("We have various Mystery in Hinduism (Sanatana Dharma)")
+
+async def shiva(update, context):
+    await update.message.reply_text("Link: https://en.wikipedia.org/wiki/Shiva")
+
+async def parvati(update, context):
+    await update.message.reply_text("Link: https://en.wikipedia.org/wiki/Parvati")
+
+async def kailash(update, context):
+    await update.message.reply_text("Link: https://en.wikipedia.org/wiki/Mount_Kailash")
+
+async def contact(update, context):
+    await update.message.reply_text("You can contact us on the mail id: moviesshadow01@gmaoil.com")
+
+
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("help", help_command)) 
+app.add_handler(CommandHandler("Shiva", shiva))
+app.add_handler(CommandHandler("Parvati", parvati))
+app.add_handler(CommandHandler("Kailash", kailash))
+app.add_handler(CommandHandler("contact", contact))
+app.add_handler(CommandHandler("context", content))
+
+app.run_polling()
