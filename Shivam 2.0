@@ -1,7 +1,7 @@
 import telegram
 from telegram.ext import ApplicationBuilder, CommandHandler
 
-TOKEN = "6774965320:AAGliOzOAxtZNNTZ-ZJx8hPOkD8MbMgKx0g" 
+TOKEN = "**************************************" 
 
 bot = telegram.Bot(token=TOKEN)
 app = ApplicationBuilder().token(TOKEN).build()
